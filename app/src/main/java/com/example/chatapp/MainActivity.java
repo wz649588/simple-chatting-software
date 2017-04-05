@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText input = (EditText) v.findViewById(R.id.input);
+                EditText input = (EditText) findViewById(R.id.input);
                 FirebaseDatabase.getInstance().getReference().push().setValue(new ChatMessage(input.getText().toString(),
                         FirebaseAuth.getInstance().getCurrentUser().getEmail()));
                 input.setText("");
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
                 messageText.setText(model.getMessageText());
                 messageUser.setText(model.getMessageUser());
-                messageTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm;ss)", model.getMessageTime()));
+                messageTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)", model.getMessageTime()));
             }
         };
         listOfMessage.setAdapter(adapter);
